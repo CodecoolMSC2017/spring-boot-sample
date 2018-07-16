@@ -1,0 +1,9 @@
+= Spring Boot Sample
+
+Specify the `development` and `local` profile on startup.
+
+IDE::
+Add the `-Dspring.profiles.active=development,local` JVM property.
+
+Maven::
+When using `spring-boot:run` specify the `-Dspring-boot.run.profiles=development,local` JVM property.
