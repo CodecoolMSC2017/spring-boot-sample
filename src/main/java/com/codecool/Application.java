@@ -12,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import javax.sql.DataSource;
 
@@ -23,14 +22,15 @@ public class Application extends WebSecurityConfigurerAdapter {
         SpringApplication.run(Application.class, args);
     }
 
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-
-        http.httpBasic();
-
-        http.authorizeRequests()
-            .anyRequest()
-            .authenticated();
+        http.csrf()
+            .disable()
+            .authorizeRequests()
+            .antMatchers("/register").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .httpBasic();
     }
 
     // Official way to expose the AuthenticationManager as a bean.
