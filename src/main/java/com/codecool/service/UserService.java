@@ -1,7 +1,7 @@
-package com.sample.service;
+package com.codecool.service;
 
-import com.sample.domain.User;
-import com.sample.repository.UserRepository;
+import com.codecool.domain.User;
+import com.codecool.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;

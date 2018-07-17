@@ -1,4 +1,4 @@
-package com.sample.domain;
+package com.codecool.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

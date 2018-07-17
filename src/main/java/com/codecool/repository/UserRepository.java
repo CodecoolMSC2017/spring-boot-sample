@@ -1,6 +1,6 @@
-package com.sample.repository;
+package com.codecool.repository;
 
-    import com.sample.domain.User;
+    import com.codecool.domain.User;
     import org.springframework.data.jpa.repository.JpaRepository;
     import org.springframework.stereotype.Repository;
 

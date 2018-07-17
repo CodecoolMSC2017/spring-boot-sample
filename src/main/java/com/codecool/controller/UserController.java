@@ -1,7 +1,7 @@
-package com.sample.controller;
+package com.codecool.controller;
 
-import com.sample.domain.User;
-import com.sample.service.UserService;
+import com.codecool.domain.User;
+import com.codecool.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
