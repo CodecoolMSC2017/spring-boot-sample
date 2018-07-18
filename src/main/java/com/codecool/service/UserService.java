@@ -7,6 +7,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -30,7 +31,8 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public User add(String username, String password, String confirmationPassword) {
+    @Transactional
+    public User add(String username, String email, String password, String confirmationPassword) {
         if (!password.equals(confirmationPassword)) {
             throw new IllegalArgumentException();
         }
@@ -39,7 +41,9 @@ public class UserService {
             username,
             passwordEncoder.encode(password),
             AuthorityUtils.createAuthorityList("USER_ROLE")));
-        return userRepository.findByUsername(username).orElseThrow();
+        User user = userRepository.findByUsername(username).orElseThrow();
+        user.setEmail(email);
+        return user;
     }
 
     public Optional<User> get(Integer id) {

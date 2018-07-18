@@ -28,9 +28,10 @@ public class UserController {
     @PostMapping("")
     public User add(@RequestBody Map<String, String> map) {
         String username = map.get("username");
+        String email = map.get("email");
         String password = map.get("password");
         String confirmationPassword = map.get("confirmationPassword");
-        return userService.add(username, password, confirmationPassword);
+        return userService.add(username, email, password, confirmationPassword);
     }
 
     @PostMapping("/change-password")

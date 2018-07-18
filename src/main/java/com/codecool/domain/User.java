@@ -14,6 +14,8 @@ public class User implements Serializable {
 
     private String username;
 
+    private String email;
+
     private Boolean enabled;
 
     @ElementCollection
@@ -38,6 +40,14 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Boolean getEnabled() {
