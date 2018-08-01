@@ -26,6 +26,10 @@ public class User implements Serializable {
     @Column(name = "authority")
     private List<String> authorities;
 
+    @OneToMany
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private List<LuckyNumber> luckyNumbers;
+
     public Integer getId() {
         return id;
     }
@@ -64,5 +68,13 @@ public class User implements Serializable {
 
     public void setAuthorities(List<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public List<LuckyNumber> getLuckyNumbers() {
+        return luckyNumbers;
+    }
+
+    public void setLuckyNumbers(List<LuckyNumber> luckyNumbers) {
+        this.luckyNumbers = luckyNumbers;
     }
 }
