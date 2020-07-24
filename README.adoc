@@ -7,3 +7,7 @@ Add the `-Dspring.profiles.active=development,local` JVM property.
 
 Maven::
 When using `spring-boot:run` specify the `-Dspring-boot.run.profiles=development,local` JVM property.
+```
+mvn spring-boot:run -Dspring-boot.run.profiles=development,local
+```
+Mind the difference between `-Dspring.profiles.active=...` and `-Dspring-boot.run.profiles=...`
